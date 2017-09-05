@@ -11,6 +11,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 class AnswerSerializer(serializers.ModelSerializer):
     """docstring for AnswerSerializer"""
+    user = serializers.SlugRelatedField(read_only=True, slug_field='username')
     class Meta:
         model = models.Answer
         fields = ('id', 'body', 'user')
